@@ -28,24 +28,24 @@ namespace AnimusHeart2Influx.Influx
             
             if (measure == "%")
             {
-                point = PointData.Measurement("humidity")
+                point = PointData.Measurement("sensor")
                     .Tag("id", id)
                     .Tag("name", name)
                     .Field("Humidity", amount)
-                    .Timestamp(DateTime.UtcNow, WritePrecision.Ns);
+                    .Timestamp(DateTime.UtcNow, WritePrecision.S);
             }
             else if (measure == "°C")
             {
-                point = PointData.Measurement("temperature")
+                point = PointData.Measurement("sensor")
                     .Tag("id", id)
                     .Tag("name", name)
                     .Field("Temperature", amount)
-                    .Timestamp(DateTime.UtcNow, WritePrecision.Ns);
+                    .Timestamp(DateTime.UtcNow, WritePrecision.S);
             }
 
             if(point != null)
             {
-                writeApi.WritePoint("Animus", "Animus", point);
+                writeApi.WritePoint("AnimusHeart", "AnimusHeart", point);
             }
         }
     }
