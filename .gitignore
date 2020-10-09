@@ -204,6 +204,7 @@ $RECYCLE.BIN/
 *.feature.xlsx.*
 *.Specs_*.html
 
+**/logs/
 
 .ionide/
 #####
