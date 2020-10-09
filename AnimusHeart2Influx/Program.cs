@@ -49,7 +49,7 @@ namespace AnimusHeart2Influx
                         .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                         .Enrich.FromLogContext()
                         .WriteTo.Console()
-                        .WriteTo.File("logs\\log-{Date}.txt", retainedFileCountLimit:7);
+                        .WriteTo.File("logs//log.txt", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7);
                 })
                 .ConfigureServices((hostContext, services) =>
                 {
