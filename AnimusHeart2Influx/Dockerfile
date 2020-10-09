@@ -5,9 +5,9 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["AnimusHeart2Influx/AnimusHeart2Influx.csproj", "AnimusHeart2Influx/"]
+COPY ["AnimusHeart2Influx.csproj", "AnimusHeart2Influx/"]
 RUN dotnet restore "AnimusHeart2Influx/AnimusHeart2Influx.csproj"
-COPY . .
+COPY . "AnimusHeart2Influx/"
 WORKDIR "/src/AnimusHeart2Influx"
 RUN dotnet build "AnimusHeart2Influx.csproj" -c Release -o /app/build
 
